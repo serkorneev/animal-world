@@ -1,5 +1,7 @@
 package animalworld.model;
 
+import animalworld.view.EntitiesPanel;
+
 /**
  * @author Sergey Korneev
  */
@@ -8,7 +10,7 @@ public class TestEntity extends Entity {
     public void move() {
         while (!entityThread.isInterrupted()) {
             synchronized (this) {
-                x = (x + STEP) % (10 * STEP);
+                x = (x + STEP) >= EntitiesPanel.MAX_WIDTH ? 0 : x + STEP;
                 notify();
             }
             try {

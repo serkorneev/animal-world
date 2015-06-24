@@ -7,13 +7,18 @@ public abstract class Entity implements Runnable {
     public static int STEP = 30;
     protected int x = 0;
     protected int y = 0;
-    protected boolean isRun = false;
     protected Thread entityThread;
 
+    /**
+     * @return int
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * @return int
+     */
     public int getY() {
         return y;
     }
@@ -21,15 +26,10 @@ public abstract class Entity implements Runnable {
     public void start() {
         entityThread = new Thread(this);
         entityThread.start();
-        isRun = true;
     }
 
     public void stop() {
         entityThread.interrupt();
-        synchronized (this) {
-            isRun = false;
-            notify();
-        }
     }
 
     public abstract void move();
@@ -37,9 +37,5 @@ public abstract class Entity implements Runnable {
     @Override
     public void run() {
         move();
-    }
-
-    public boolean isRun() {
-        return isRun;
     }
 }

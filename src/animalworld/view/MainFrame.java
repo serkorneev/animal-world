@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
  */
 public class MainFrame {
     public static EntitiesPanel ep;
+
     public static void createGUI() {
         final JFrame frame = new JFrame("Animal World");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,11 +37,11 @@ public class MainFrame {
         pauseButton.setEnabled(false);
         actionPanel.add(pauseButton);
 
+        for (Entity entity: environment.getEntities()) {
+            ep.addView(new EntityView(entity));
+        }
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                for (Entity entity: environment.getEntities()) {
-                    (new Thread(new EntityView(entity))).start();
-                }
                 environment.start();
                 startButton.setEnabled(false);
                 pauseButton.setEnabled(true);
@@ -56,8 +57,9 @@ public class MainFrame {
 
         mainPanel.add(actionPanel, BorderLayout.SOUTH);
         frame.getContentPane().add(mainPanel);
-        frame.setPreferredSize(new Dimension(350, 300));
+        frame.setPreferredSize(new Dimension(EntitiesPanel.MAX_WIDTH, EntitiesPanel.MAX_HEIGHT));
         frame.setMinimumSize(new Dimension(200, 200));
+        frame.setMaximumSize(new Dimension(EntitiesPanel.MAX_WIDTH + 5, EntitiesPanel.MAX_HEIGHT + 65));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
