@@ -1,20 +1,18 @@
-package animalworld.model;
-
-import animalworld.view.EntitiesPanel;
+package com.griddynamics.devschool.animalworld.model;
 
 /**
  * @author Sergey Korneev
  */
-public class TestEntity extends Entity {
+public class Test2Entity extends Entity {
     @Override
     public void move() {
         while (!entityThread.isInterrupted()) {
             synchronized (this) {
-                x = (x + STEP) >= EntitiesPanel.MAX_WIDTH ? 0 : x + STEP;
+                y = (y + STEP) % (10 * STEP);
                 notify();
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 break;
             }

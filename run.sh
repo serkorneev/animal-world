@@ -1,3 +1,1 @@
-mkdir -p out
-javac -sourcepath ./src -d out src/animalworld/view/MainFrame.java
-java -classpath ./out animalworld.view.MainFrame
+java -jar view/target/view-1.0.0.jar

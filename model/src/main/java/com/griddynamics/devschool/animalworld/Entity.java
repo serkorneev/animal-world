@@ -1,4 +1,4 @@
-package animalworld.model;
+package com.griddynamics.devschool.animalworld.model;
 
 /**
  * @author Sergey Korneev
@@ -34,7 +34,6 @@ public abstract class Entity implements Runnable {
 
     public abstract void move();
 
-    @Override
     public void run() {
         move();
     }

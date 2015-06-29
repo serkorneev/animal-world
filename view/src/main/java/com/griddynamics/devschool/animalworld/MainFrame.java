@@ -1,8 +1,7 @@
-package animalworld.view;
+package com.griddynamics.devschool.animalworld.view;
 
-import animalworld.model.Entity;
-import animalworld.model.Environment;
-import animalworld.model.TestEntity;
+import com.griddynamics.devschool.animalworld.model.Entity;
+import com.griddynamics.devschool.animalworld.model.Environment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,7 +65,7 @@ public class MainFrame {
     }
 
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrame.setDefaultLookAndFeelDecorated(true);
                 createGUI();

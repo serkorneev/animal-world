@@ -1,6 +1,7 @@
-package animalworld.view;
+package com.griddynamics.devschool.animalworld.view;
 
-import animalworld.model.Entity;
+import com.griddynamics.devschool.animalworld.model.Entity;
+
 import java.awt.*;
 
 /**

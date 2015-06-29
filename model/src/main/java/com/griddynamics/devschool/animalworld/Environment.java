@@ -1,4 +1,4 @@
-package animalworld.model;
+package com.griddynamics.devschool.animalworld.model;
 
 import java.util.ArrayList;
 
